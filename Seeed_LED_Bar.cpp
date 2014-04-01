@@ -32,22 +32,22 @@ int __led_state = 0;
 
 void led_bar_init(PIN_T pinClk, PIN_T pinDta)
 {
-    seeed_hal_pin_init(&__pinClk, pinClk);
-    seeed_hal_pin_dir(&__pinClk, HAL_PIN_OUTPUT);
+    suli_pin_init(&__pinClk, pinClk);
+    suli_pin_dir(&__pinClk, HAL_PIN_OUTPUT);
     
-    seeed_hal_pin_init(&__pinDta, pinDta);
-    seeed_hal_pin_dir(&__pinDta, HAL_PIN_OUTPUT);
+    suli_pin_init(&__pinDta, pinDta);
+    suli_pin_dir(&__pinDta, HAL_PIN_OUTPUT);
 }
 
 void latchData()
 {
-    seeed_hal_pin_write(&__pinDta, LOW);
-    seeed_hal_delay_us(10);
+    suli_pin_write(&__pinDta, LOW);
+    suli_delay_us(10);
 
     for(int i=0; i<4; i++)
     {
-        seeed_hal_pin_write(&__pinDta, HIGH);
-        seeed_hal_pin_write(&__pinDta, LOW);
+        suli_pin_write(&__pinDta, HIGH);
+        suli_pin_write(&__pinDta, LOW);
     }
 }
 
@@ -56,10 +56,10 @@ void send16bitData(unsigned int data)
     for(int i=0; i<16; i++)
     {
         unsigned int state = data&0x8000 ? HIGH : LOW;
-        seeed_hal_pin_write(&__pinDta, state);
+        suli_pin_write(&__pinDta, state);
 
-        state = seeed_hal_pin_read(&__pinClk) ? LOW : HIGH;
-        seeed_hal_pin_write(&__pinClk, state);
+        state = suli_pin_read(&__pinClk) ? LOW : HIGH;
+        suli_pin_write(&__pinClk, state);
 
         data <<= 1;
     }
