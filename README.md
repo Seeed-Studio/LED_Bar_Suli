@@ -13,11 +13,11 @@ For more information, please refer to [Grove_LED_Bar][1]
 
 This is a Suli-Compatible Library, You Should Download Suli for your platform, please refer to [https://github.com/Seeed-Studio/Suli](https://github.com/Seeed-Studio/Suli "Suli")
 
-If can't find Suli for your platform, please contract us, If you can port it yourself and pull request to us, We'll be appreciated. 
+If you can't find Suli for your platform, please contract us, If you can port it yourself and pull request to us, We'll be appreciated. 
 
 ***For Arduino:***
 
-Just like you use the other Library, What's different is you should download Suli for Arduino First.
+Just like you use the other Library, What's different is you should download Suli for Arduino First, remember that just Suli for Arduino, the others should be deleted.
 
 ***For non-Arduino Platform:***
 
