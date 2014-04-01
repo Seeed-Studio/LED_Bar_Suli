@@ -8,9 +8,18 @@ For more information, please refer to [Grove_LED_Bar][1]
 
 
 
+-----
 **Note:**
 
-This is a Suli-Compatible Library, You Should Download Suli first, please refer to [https://github.com/Seeed-Studio/Suli](https://github.com/Seeed-Studio/Suli "Suli")
+This is a Suli-Compatible Library, You Should Download Suli for your platform, please refer to [https://github.com/Seeed-Studio/Suli](https://github.com/Seeed-Studio/Suli "Suli")
+
+If can't find Suli for your platform, please contract us, If you can port it yourself and pull request to us, We'll be appreciated. 
+
+***For Arduino:***
+
+Just like you use the other Library, What's different is you should download Suli for Arduino First.
+
+***For non-Arduino Platform:***
 
 If you use a non-Arduino platform, what you need is xxx.h and xxx.cpp(you can change it to xxx.h), the other files like xxx_Arduino.h and examples is for Arduino, you can just delete them.
 
