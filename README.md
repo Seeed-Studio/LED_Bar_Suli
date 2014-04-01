@@ -17,11 +17,11 @@ If you can't find Suli for your platform, please contract us, If you can port it
 
 ***For Arduino:***
 
-Just like you use the other Library, What's different is you should download Suli for Arduino First, remember that just Suli for Arduino, the others should be deleted.
+Just like you use the other Library, What's different is you should download Suli for Arduino First, remember that just put Suli for Arduino to your Arduino libraries folder.
 
 ***For non-Arduino Platform:***
 
-If you use a non-Arduino platform, what you need is xxx.h and xxx.cpp(you can change it to xxx.c while your compiler can't support c++), the other files like xxx_Arduino.h and examples is for Arduino, you can just delete them.
+For a non-Arduino platform, what you need is xxx.h and xxx.cpp(you can change it to xxx.c while your compiler can't support c++), the other files like xxx_Arduino.h and examples is for Arduino, you can just delete them.
 
 
 ----
