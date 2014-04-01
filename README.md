@@ -21,7 +21,7 @@ Just like you use the other Library, What's different is you should download Sul
 
 ***For non-Arduino Platform:***
 
-If you use a non-Arduino platform, what you need is xxx.h and xxx.cpp(you can change it to xxx.h), the other files like xxx_Arduino.h and examples is for Arduino, you can just delete them.
+If you use a non-Arduino platform, what you need is xxx.h and xxx.cpp(you can change it to xxx.c while your compiler can't support c++), the other files like xxx_Arduino.h and examples is for Arduino, you can just delete them.
 
 
 ----
