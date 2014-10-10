@@ -1,4 +1,4 @@
-// demo of led bar, set level, red to green
+// demo of led bar, set level in reverse, green to red
 
 #include <Suli.h>
 #include <Wire.h>
@@ -15,7 +15,7 @@ void setup()
 
 void loop()
 {
-    bar.setLevel(level++);
+    bar.setLevelReverse(level++);
 
     level = level>10 ? 0 : level;
 
