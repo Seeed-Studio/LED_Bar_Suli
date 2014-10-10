@@ -1,6 +1,6 @@
 /*
   Seeed_LED_Bar.cpp
-  This is a Suly compatable Library
+  This is a Suli compatable Library
   
   2014 Copyright (c) Seeed Technology Inc.  All right reserved.
   
@@ -65,11 +65,14 @@ void send16bitData(unsigned int data)
     }
 }
 
-// set led single bit, a bit contrl a led
-// such as, index_bits = 0x05, then led 0  and led 3 will on, the others will off
+// set led single bit, red to green, one bit for each led
+// such as, index_bits = 0x05, then led 1 and led 3 will be on and the others will be off
+// 0x0   = 0b000000000000000 = all leds off
+// 0x05  = 0b000000000000101 = leds 1 and 3 on, the others off
+// 0x155 = 0b000000101010101 = leds 1,3,5,7,9 on, 2,4,6,8,10 off
+// 0x3ff = 0b000001111111111 = all leds on
 void led_bar_index_bit(unsigned int index_bits)
 {
-
     send16bitData(CMDMODE);
 
     for (int i=0;i<12;i++)
@@ -83,11 +86,10 @@ void led_bar_index_bit(unsigned int index_bits)
     latchData();
 }
 
-// set level, there level 0-10
-// level 0 means all leds off while level 5 means 5led on and the other will off
+// set level 0-10, red to green, where 1 is red
+// level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
 void led_bar_set_level(int level)
 {
-
     if(level>10)return;
 
     send16bitData(CMDMODE);
@@ -102,14 +104,33 @@ void led_bar_set_level(int level)
     latchData();
 }
 
+// set level 0-10 in reverse, green to red, where 10 is red
+// level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
+void led_bar_set_level_reverse(int level)
+{
+    if(level>10)return;
+
+    send16bitData(CMDMODE);
+
+    for(int i=0;i<12;i++)
+    {
+        unsigned int state1 = (i>=(10-level)) ? ON : SHUT;
+
+        send16bitData(state1);
+    }
+
+    latchData();
+}
+
 // control a single led
 // num - which led
-// st - 1: on   0: off
-void led_bar_single_led(int num, int st)
+// state - 1: on   0: off
+void led_bar_single_led(int num, int state)
 {
     if(num>10)return;
-    __led_state = st ? (__led_state | (0x01<<num)) : (__led_state & ~(0x01<<num));
-    led_bar_index_bit(__led_state);
 
+    __led_state = state ? (__led_state | (0x01<<num)) : (__led_state & ~(0x01<<num));
+
+    led_bar_index_bit(__led_state);
 }
 
