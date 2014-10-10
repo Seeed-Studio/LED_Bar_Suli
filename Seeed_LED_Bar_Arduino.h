@@ -76,7 +76,7 @@ void setLevelReverse(int level)
  * num - which led
  * state - 1: on   0: off
  */
-void setSingled(int num, int state)
+void singleLed(int num, int state)
 {
     led_bar_single_led(num, state);
 }
