@@ -1,7 +1,7 @@
 /*
   Seeed_LED_Bar_Arduino.h
   For Arduino Only
-  This is a Suly compatible Library
+  This is a Suli compatible Library
   
   2014 Copyright (c) Seeed Technology Inc.  All right reserved.
   
@@ -41,8 +41,12 @@ SeeedLedBar(int pinClk, int pinDta)         // CLK, DTA
 }
     
 /*
- * set led single bit, a bit contrl a led
- * such as, index_bits = 0x05, then led 0  and led 3 will on, the others will off
+ * set led single bit, red to green, one bit for each led
+ * such as, index_bits = 0x05, then led 1 and led 3 will be on and the others will be off
+ * 0x0   = 0b000000000000000 = all leds off
+ * 0x05  = 0b000000000000101 = leds 1 and 3 on, the others off
+ * 0x155 = 0b000000101010101 = leds 1,3,5,7,9 on, 2,4,6,8,10 off
+ * 0x3ff = 0b000001111111111 = all leds on
  */
 void indexBit(unsigned int index_bits)
 {
@@ -50,23 +54,31 @@ void indexBit(unsigned int index_bits)
 }
 
 /*
- * set level, there level 0-10
- * level 0 means all leds off while level 5 means 5led on and the other will off
+ * set level 0-10, red to green, where 1 is red
+ * level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
  */
- 
 void setLevel(int level)
 {
     led_bar_set_level(level);
 }
 
 /*
+ * set level 0-10 in reverse, green to red, where 10 is red
+ * level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
+ */
+void setLevelReverse(int level)
+{
+    led_bar_set_level_reverse(int level);
+}
+
+/*
  * control a single led
  * num - which led
- * st - 1: on   0: off
+ * state - 1: on   0: off
  */
-void setSingled(int num, int st)
+void singleLed(int num, int state)
 {
-    led_bar_single_led(num, st);
+    led_bar_single_led(num, state);
 }
 
 
