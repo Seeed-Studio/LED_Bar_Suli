@@ -37,7 +37,7 @@ public:
  */
 SeeedLedBar(int pinClk, int pinDta)         // CLK, DTA
 {
-    led_bar_init(pinClk, pinDta);
+    led_bar_init((PIN_T)pinClk, (PIN_T)pinDta);
 }
     
 /*
@@ -68,7 +68,7 @@ void setLevel(int level)
  */
 void setLevelReverse(int level)
 {
-    led_bar_set_level_reverse(int level);
+    led_bar_set_level_reverse(level);
 }
 
 /*
