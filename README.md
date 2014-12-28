@@ -1,10 +1,12 @@
-LED Bar Suli
+Grove LED Bar Suli
 -------------------------------------------------------------
 ![image](http://www.seeedstudio.com/wiki/images/b/b8/Bar.jpg)
 
-LED Bar, common in volume display, is a common sensor component to display analog value. You can use a row of discrete LED lights to make division of this effect, you can also use our element mentioned here. 
+Grove LED Bar is comprised of a 10 segment LED gauge bar and an MY9221 LED controlling chip.
+It can be used as an indicator for remaining battery life, voltage, water level, music volume or other values that require a gradient display.
+There are 10 discrete LEDs in the LED bar graph: one red, one yellow, and eight green bars.
 
-For more information, please refer to [Grove_LED_Bar][1]
+For more information, please refer to [Grove_LED_Bar][1] and [LED_Bar][2]
 
 
 
@@ -13,7 +15,7 @@ For more information, please refer to [Grove_LED_Bar][1]
 
 This is a Suli-Compatible Library, You Should Download Suli for your platform, please refer to [https://github.com/Seeed-Studio/Suli](https://github.com/Seeed-Studio/Suli "Suli")
 
-If you can't find Suli for your platform, please contract us, If you can port it yourself and pull request to us, We'll be appreciated. 
+If you can't find Suli for your platform, please contract us, If you can port it yourself and pull request to us, We'll be appreciated.
 
 ***For Arduino:***
 
@@ -39,7 +41,9 @@ we integrate resources to serve new era of innovation. Seeed also works with <br
 global distributors and partners to push open hardware movement.<br>
 
 
-[1]:http://www.seeedstudio.com/wiki/LED_Bar
+[1]:http://www.seeedstudio.com/wiki/Grove_-_LED_Bar
+
+[2]:http://www.seeedstudio.com/wiki/LED_Bar
 
 
 

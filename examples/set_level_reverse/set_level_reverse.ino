@@ -1,13 +1,17 @@
-// demo of led bar, set level in reverse, green to red
+// Grove LED Bar - Set Level Reverse Example
+
 
 #include <Suli.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
 #include "Seeed_LED_Bar_Arduino.h"
 
-SeeedLedBar bar(A4, A5);                  // CLK, DTA
+// The 3rd parameter sets the initial orientation
+// 0 = red to green, 1 = green to red
+SeeedLedBar bar(A4, A5, 1);    // CLK, DTA, Orientation
 
 int level = 0;
+
 void setup()
 {
 
@@ -15,9 +19,9 @@ void setup()
 
 void loop()
 {
-    bar.setLevelReverse(level++);
+  bar.setLevel(level++);
 
-    level = level>10 ? 0 : level;
+  level = level>10 ? 0 : level;
 
-    delay(100);
+  delay(100);
 }

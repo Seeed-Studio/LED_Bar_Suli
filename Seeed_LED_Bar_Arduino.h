@@ -2,9 +2,9 @@
   Seeed_LED_Bar_Arduino.h
   For Arduino Only
   This is a Suli compatible Library
-  
+
   2014 Copyright (c) Seeed Technology Inc.  All right reserved.
-  
+
   Loovee
   2013-3-26
 
@@ -35,50 +35,70 @@ public:
 /*
  * Initialize, set pin number
  */
-SeeedLedBar(int pinClk, int pinDta)         // CLK, DTA
+SeeedLedBar(unsigned char pinClk, unsigned char pinDta, bool greenToRed)  // CLK, DTA, Orientation
 {
-    led_bar_init((PIN_T)pinClk, (PIN_T)pinDta);
-}
-    
-/*
- * set led single bit, red to green, one bit for each led
- * such as, index_bits = 0x05, then led 1 and led 3 will be on and the others will be off
- * 0x0   = 0b000000000000000 = all leds off
- * 0x05  = 0b000000000000101 = leds 1 and 3 on, the others off
- * 0x155 = 0b000000101010101 = leds 1,3,5,7,9 on, 2,4,6,8,10 off
- * 0x3ff = 0b000001111111111 = all leds on
- */
-void indexBit(unsigned int index_bits)
-{
-    led_bar_index_bit(index_bits);
+    led_bar_init((PIN_T)pinClk, (PIN_T)pinDta, (bool)greenToRed);
 }
 
 /*
- * set level 0-10, red to green, where 1 is red
- * level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
+ * Change the orientation
+ * Green to red, or red to green
  */
-void setLevel(int level)
+void setGreenToRed(bool greenToRed)
+{
+    led_bar_set_green_to_red(greenToRed);
+}
+
+/*
+ * Set level (0-10)
+ * Level 0 means all leds off
+ * Level 10 means all leds on
+ */
+void setLevel(unsigned char level)
 {
     led_bar_set_level(level);
 }
 
 /*
- * set level 0-10 in reverse, green to red, where 10 is red
- * level 0 means all leds off while level 5 means leds 1-5 on and 6-10 will be off
+ * Set a single led
+ * led (1-10)
+ * state (0=off, 1=on)
  */
-void setLevelReverse(int level)
+void setLed(unsigned char led, bool state)
 {
-    led_bar_set_level_reverse(level);
+    led_bar_set_led(led, state);
 }
 
 /*
- * control a single led
- * num - which led
- * state - 1: on   0: off
+ * Toggle a single led
+ * led (1-10)
  */
-void singleLed(int num, int state)
+void toggleLed(unsigned char led)
 {
-    led_bar_single_led(num, state);
+    led_bar_toggle_led(led);
+}
+
+
+/*
+ * Set the current state, one bit for each led
+ * 0    = 0x0   = 0b000000000000000 = all leds off
+ * 5    = 0x05  = 0b000000000000101 = leds 1 and 3 on, all others off
+ * 341  = 0x155 = 0b000000101010101 = leds 1,3,5,7,9 on, 2,4,6,8,10 off
+ * 1023 = 0x3ff = 0b000001111111111 = all leds on
+ *                       |        |
+ *                       10       1
+ */
+void setBits(unsigned int bits)
+{
+    led_bar_set_bits(bits);
+}
+
+/*
+ * Return the current state
+ */
+unsigned int getBits()
+{
+    return led_bar_get_bits();
 }
 
 
