@@ -2,7 +2,9 @@ Grove LED Bar Suli
 -------------------------------------------------------------
 ![image](http://www.seeedstudio.com/wiki/images/b/b8/Bar.jpg)
 
-Grove LED Bar, common in volume display, is a common sensor component to display analog value. You can use a row of discrete LED lights to make division of this effect, you can also use our element mentioned here.
+Grove LED Bar is comprised of a 10 segment LED gauge bar and an MY9221 LED controlling chip.
+It can be used as an indicator for remaining battery life, voltage, water level, music volume or other values that require a gradient display.
+There are 10 discrete LEDs in the LED bar graph: one red, one yellow, and eight green bars.
 
 For more information, please refer to [Grove_LED_Bar][1] and [LED_Bar][2]
 
