@@ -128,6 +128,8 @@ void led_bar_toggle_led(unsigned char led)
 //                       10       1
 void led_bar_set_bits(unsigned int bits)
 {
+  __state = bits & 0x3FF;
+
   send16bitData(CMDMODE);
 
   for (unsigned char i=0; i<10; i++)
